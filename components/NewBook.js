@@ -47,9 +47,7 @@ export default function NewBook(props) {
         <input onChange={updateBookInfo} type="text" name="genre" />
       </FormElement>
       <FormElement>
-        <label htmlFor="bookStatus" defaultValue={"Want to Read"}>
-          Book Status
-        </label>
+        <label htmlFor="bookStatus">Book Status</label>
         <select
           name="status"
           onChange={updateBookInfo}
