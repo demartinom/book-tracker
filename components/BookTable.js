@@ -1,4 +1,5 @@
 import React from "react";
+import { BookTableStyled } from "../styles/BookTable.styled";
 
 export default function BookTable(props) {
   const bookData = props.bookList.map((book) => (
@@ -11,7 +12,7 @@ export default function BookTable(props) {
     </tr>
   ));
   return (
-    <table>
+    <BookTableStyled>
       <thead>
         <tr>
           <th>Book Title</th>
@@ -22,6 +23,6 @@ export default function BookTable(props) {
         </tr>
       </thead>
       <tbody>{bookData}</tbody>
-    </table>
+    </BookTableStyled>
   );
 }
