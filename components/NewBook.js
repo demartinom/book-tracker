@@ -21,6 +21,9 @@ export default function NewBook(props) {
       [event.target.name]: event.target.value,
     }));
   }
+  function updateRating(event) {
+    setBookData((prevData) => ({ ...prevData, rating: event }));
+  }
   function newBook(event) {
     event.preventDefault();
     setBookData((prevData) => ({
@@ -62,7 +65,7 @@ export default function NewBook(props) {
       </FormElement>
       <FormElement>
         <label htmlFor="rating">Book Rating</label>
-        <RatingFunction size={24} />
+        <RatingFunction size={24} onClick={updateRating} />
       </FormElement>
       <button onClick={newBook}>Add Book</button>
     </BookForm>
