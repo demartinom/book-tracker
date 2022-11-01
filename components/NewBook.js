@@ -62,7 +62,7 @@ export default function NewBook(props) {
       </FormElement>
       <FormElement>
         <label htmlFor="rating">Book Rating</label>
-        <RatingFunction />
+        <RatingFunction size={24} />
       </FormElement>
       <button onClick={newBook}>Add Book</button>
     </BookForm>
