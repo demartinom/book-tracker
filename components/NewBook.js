@@ -15,7 +15,6 @@ export default function NewBook(props) {
       ...prevData,
       [event.target.name]: event.target.value,
     }));
-    console.log(bookData);
   }
   function newBook(event) {
     event.preventDefault();
@@ -40,14 +39,20 @@ export default function NewBook(props) {
         <input onChange={updateBookInfo} type="text" name="genre" />
       </FormElement>
       <FormElement>
-        <label htmlFor="bookStatus">Book Status</label>
-        <select name="status">
-          <option defaultValue={"Choose an Option"} disabled>
+        <label htmlFor="bookStatus" defaultValue={"Want to Read"}>
+          Book Status
+        </label>
+        <select
+          name="status"
+          onChange={updateBookInfo}
+          defaultValue={"default"}
+        >
+          <option value="default" disabled name="choose">
             Choose an Option
           </option>
-          <option value="finished">Finished</option>
-          <option value="reading">Currently Reading</option>
-          <option value="want">Want to Read</option>
+          <option value="Finished">Finished</option>
+          <option value="Currently Reading">Currently Reading</option>
+          <option value="Want to Read">Want to Read</option>
         </select>
       </FormElement>
       <FormElement>
