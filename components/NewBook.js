@@ -1,6 +1,11 @@
 import React from "react";
 import { BookForm, FormElement } from "../styles/NewBook.styled";
+import dynamic from "next/dynamic";
 
+const RatingFunction = dynamic(
+  () => import("react-simple-star-rating").then((mod) => mod.Rating),
+  { ssr: false }
+);
 export default function NewBook(props) {
   const [bookData, setBookData] = React.useState({
     id: "",
@@ -56,10 +61,8 @@ export default function NewBook(props) {
         </select>
       </FormElement>
       <FormElement>
-        {" "}
         <label htmlFor="rating">Book Rating</label>
-        {/* Rating Placeholder */}
-        <input onChange={updateBookInfo} type="text" name="rating" />
+        <RatingFunction />
       </FormElement>
       <button onClick={newBook}>Add Book</button>
     </BookForm>
