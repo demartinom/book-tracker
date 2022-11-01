@@ -21,9 +21,7 @@ export default function BookTable(props) {
           <th>Rating</th>
         </tr>
       </thead>
-      <tbody>
-        {bookData}
-      </tbody>
+      <tbody>{bookData}</tbody>
     </table>
   );
 }
