@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
+import { BookForm } from "../styles/NewBook.styled";
 
 export default function NewBook() {
   return (
-    <div></div>
-  )
+    <form action="">
+     
+    </form>
+  );
 }
