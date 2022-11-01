@@ -4,7 +4,7 @@ import React from "react";
 export default function Home() {
   const [bookList, setBookList] = React.useState([]);
   const bookTable = bookList.map((book) => (
-    <div key={book.name}>
+    <div key={book.id}>
       <h1>{book.name}</h1>
       <h2>{book.author}</h2>
       <h3>{book.genre}</h3>
