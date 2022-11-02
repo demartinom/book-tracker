@@ -1,5 +1,5 @@
 import React from "react";
-import { BookTableStyled } from "../styles/BookTable.styled";
+import { BookTableStyled, Actions } from "../styles/BookTable.styled";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import dynamic from "next/dynamic";
 
@@ -25,10 +25,10 @@ export default function BookTable(props) {
       <td>
         <RatingFunction initialValue={book.rating} size={24} readonly={true} />
       </td>
-      <td>
+      <Actions>
         <AiOutlineDelete onClick={deleteBook} />
         <AiOutlineEdit />
-      </td>
+      </Actions>
     </tr>
   ));
   return (
