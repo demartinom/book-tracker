@@ -24,6 +24,7 @@ export default function UpdateBook(props) {
     }));
     props.setBooks((prevArray) => [...prevArray, bookData]);
   }
+
   return (
     <BookForm action="">
       <FormElement>
@@ -32,25 +33,33 @@ export default function UpdateBook(props) {
           onChange={updateBookInfo}
           type="text"
           name="name"
-          value={props.currentBook.name}
+          value={props.currentBook[0].name}
         />
       </FormElement>
       <FormElement>
         <label htmlFor="author">Author</label>
-        <input onChange={updateBookInfo} type="text" name="author"
-        value={props.currentBook.author} />
+        <input
+          onChange={updateBookInfo}
+          type="text"
+          name="author"
+          value={props.currentBook[0].author}
+        />
       </FormElement>
       <FormElement>
         <label htmlFor="genre">Genre</label>
-        <input onChange={updateBookInfo} type="text" name="genre"
-        value={props.currentBook.genre} />
+        <input
+          onChange={updateBookInfo}
+          type="text"
+          name="genre"
+          value={props.currentBook[0].genre}
+        />
       </FormElement>
       <FormElement>
         <label htmlFor="bookStatus">Book Status</label>
         <select
           name="status"
           onChange={updateBookInfo}
-          defaultValue={props.currentBook.status}
+          defaultValue={props.currentBook[0].status}
         >
           <option value="default" disabled name="choose">
             Choose an Option
@@ -62,7 +71,11 @@ export default function UpdateBook(props) {
       </FormElement>
       <FormElement>
         <label htmlFor="rating">Book Rating</label>
-        <RatingFunction size={24} onClick={updateRating} initialValue={props.currentBook.rating}/>
+        <RatingFunction
+          size={24}
+          onClick={updateRating}
+          initialValue={props.currentBook[0].rating}
+        />
       </FormElement>
       <button onClick={newBook}>Add Book</button>
     </BookForm>
