@@ -11,6 +11,8 @@ const RatingFunction = dynamic(
 
 export default function BookTable(props) {
   const [isShown, setIsShown] = React.useState(false);
+  const [currentBook, setCurrentBook] = React.useState("");
+
   function deleteBook(e) {
     props.setBooks((prevList) =>
       prevList.filter(
@@ -19,8 +21,8 @@ export default function BookTable(props) {
     );
   }
   function updateBook(e) {
-    // console.log(e.target.parentNode.parentNode.id);
     setIsShown(true);
+    
   }
   const bookData = props.bookList.map((book) => (
     <tr key={book.id} id={book.id}>
@@ -52,7 +54,13 @@ export default function BookTable(props) {
         </thead>
         <tbody>{bookData}</tbody>
       </BookTableStyled>
-      {isShown && <UpdateBook />}
+      {isShown && (
+        <UpdateBook
+          hideUpdate={setIsShown}
+          currentBook={currentBook}
+          setBooks={props.setBookList}
+        />
+      )}
     </>
   );
 }
