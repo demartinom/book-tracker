@@ -10,13 +10,17 @@ const RatingFunction = dynamic(
 );
 
 export default function BookTable(props) {
-  const [isShown, setIsShown] = React.useState(false);
-  const [currentBook, setCurrentBook] = React.useState([]);
-
   function deleteBook(e) {
     props.setBooks((prevList) =>
       prevList.filter(
         (book) => book.id !== parseInt(e.target.parentNode.parentNode.id)
+      )
+    );
+  }
+  function updateBook(e) {
+    props.setCurrentBook(
+      props.bookList.filter(
+        (book) => book.id == e.target.parentNode.parentNode.id
       )
     );
   }
@@ -35,34 +39,19 @@ export default function BookTable(props) {
       </Actions>
     </tr>
   ));
-  function updateBook(e) {
-    setCurrentBook(
-      props.bookList.filter(
-        (book) => book.id == e.target.parentNode.parentNode.id
-      )
-    );
-  }
+ 
   return (
-    <>
-      <BookTableStyled>
-        <thead>
-          <tr>
-            <th>Book Title</th>
-            <th>Author</th>
-            <th>Genre</th>
-            <th>Status</th>
-            <th>Rating</th>
-          </tr>
-        </thead>
-        <tbody>{bookData}</tbody>
-      </BookTableStyled>
-      {isShown && (
-        <UpdateBook
-          hideUpdate={setIsShown}
-          currentBook={currentBook}
-          setBooks={props.setBookList}
-        />
-      )}
-    </>
+    <BookTableStyled>
+      <thead>
+        <tr>
+          <th>Book Title</th>
+          <th>Author</th>
+          <th>Genre</th>
+          <th>Status</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>{bookData}</tbody>
+    </BookTableStyled>
   );
 }
