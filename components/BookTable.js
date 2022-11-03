@@ -2,6 +2,7 @@ import React from "react";
 import { BookTableStyled, Actions } from "../styles/BookTable.styled";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import dynamic from "next/dynamic";
+import UpdateBook from "./UpdateBook";
 
 const RatingFunction = dynamic(
   () => import("react-simple-star-rating").then((mod) => mod.Rating),
@@ -9,12 +10,17 @@ const RatingFunction = dynamic(
 );
 
 export default function BookTable(props) {
+  const [isShown, setIsShown] = React.useState(false);
   function deleteBook(e) {
     props.setBooks((prevList) =>
       prevList.filter(
         (book) => book.id !== parseInt(e.target.parentNode.parentNode.id)
       )
     );
+  }
+  function updateBook(e) {
+    // console.log(e.target.parentNode.parentNode.id);
+    setIsShown(true);
   }
   const bookData = props.bookList.map((book) => (
     <tr key={book.id} id={book.id}>
@@ -27,22 +33,26 @@ export default function BookTable(props) {
       </td>
       <Actions>
         <AiOutlineDelete onClick={deleteBook} />
-        <AiOutlineEdit />
+        <AiOutlineEdit onClick={updateBook} />
       </Actions>
     </tr>
   ));
   return (
-    <BookTableStyled>
-      <thead>
-        <tr>
-          <th>Book Title</th>
-          <th>Author</th>
-          <th>Genre</th>
-          <th>Status</th>
-          <th>Rating</th>
-        </tr>
-      </thead>
-      <tbody>{bookData}</tbody>
-    </BookTableStyled>
+    <>
+      {" "}
+      <BookTableStyled>
+        <thead>
+          <tr>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Status</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>{bookData}</tbody>
+      </BookTableStyled>
+      {isShown && <UpdateBook />}
+    </>
   );
 }
