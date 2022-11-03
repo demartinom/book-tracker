@@ -8,7 +8,7 @@ const RatingFunction = dynamic(
 );
 export default function NewBook(props) {
   const [bookData, setBookData] = React.useState({
-    id: "",
+    id: 1,
     name: "",
     author: "",
     genre: "",
