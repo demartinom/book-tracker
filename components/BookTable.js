@@ -8,7 +8,6 @@ const RatingFunction = dynamic(
   () => import("react-simple-star-rating").then((mod) => mod.Rating),
   { ssr: false }
 );
-
 export default function BookTable(props) {
   function deleteBook(e) {
     props.setBooks((prevList) =>
@@ -18,11 +17,10 @@ export default function BookTable(props) {
     );
   }
   function updateBook(e) {
-    props.setCurrentBook(
-      props.bookList.filter(
-        (book) => book.id == e.target.parentNode.parentNode.id
-      )
+    const bookObject = props.bookList.filter(
+      (book) => book.id == e.target.parentNode.parentNode.id
     );
+    props.setCurrentBook(bookObject[0]);
   }
   const bookData = props.bookList.map((book) => (
     <tr key={book.id} id={book.id}>
@@ -39,7 +37,7 @@ export default function BookTable(props) {
       </Actions>
     </tr>
   ));
- 
+
   return (
     <BookTableStyled>
       <thead>
