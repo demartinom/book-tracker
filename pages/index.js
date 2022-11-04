@@ -11,7 +11,7 @@ export default function Home() {
     if (currentBook) {
       setIsShown(true);
     }
-  },[currentBook]);
+  }, [currentBook]);
   return (
     <div>
       <NewBook setBooks={setBookList} />
@@ -25,6 +25,7 @@ export default function Home() {
         <UpdateBook
           hideUpdate={setIsShown}
           currentBook={currentBook}
+          setCurrent={setCurrentBook}
           setBooks={setBookList}
         />
       )}
