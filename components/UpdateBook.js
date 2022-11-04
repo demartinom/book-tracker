@@ -8,23 +8,24 @@ const RatingFunction = dynamic(
 );
 export default function UpdateBook(props) {
   function updateBookInfo(event) {
-    setBookData((prevData) => ({
+    props.setCurrent((prevData) => ({
       ...prevData,
       [event.target.name]: event.target.value,
     }));
   }
   function updateRating(event) {
-    setBookData((prevData) => ({ ...prevData, rating: event }));
+    props.setCurrent((prevData) => ({ ...prevData, rating: event }));
   }
-  function newBook(event) {
+  function update(event) {
     event.preventDefault();
-    setBookData((prevData) => ({
-      ...prevData,
-      id: Math.floor(Math.random() * 1000),
-    }));
-    props.setBooks((prevArray) => [...prevArray, bookData]);
+    let newArray = props.bookList.map((book) => {
+      if (book.id === props.currentBook.id) {
+        return props.currentBook;
+      }
+      return book;
+    });
+    props.setBooks(newArray);
   }
-
   return (
     <BookForm action="">
       <FormElement>
@@ -33,7 +34,7 @@ export default function UpdateBook(props) {
           onChange={updateBookInfo}
           type="text"
           name="name"
-          value={props.currentBook[0].name}
+          defaultValue={props.currentBook.name}
         />
       </FormElement>
       <FormElement>
@@ -42,7 +43,7 @@ export default function UpdateBook(props) {
           onChange={updateBookInfo}
           type="text"
           name="author"
-          value={props.currentBook[0].author}
+          defaultValue={props.currentBook.author}
         />
       </FormElement>
       <FormElement>
@@ -51,7 +52,7 @@ export default function UpdateBook(props) {
           onChange={updateBookInfo}
           type="text"
           name="genre"
-          value={props.currentBook[0].genre}
+          defaultValue={props.currentBook.genre}
         />
       </FormElement>
       <FormElement>
@@ -59,7 +60,7 @@ export default function UpdateBook(props) {
         <select
           name="status"
           onChange={updateBookInfo}
-          defaultValue={props.currentBook[0].status}
+          defaultValue={props.currentBook.status}
         >
           <option value="default" disabled name="choose">
             Choose an Option
@@ -74,10 +75,10 @@ export default function UpdateBook(props) {
         <RatingFunction
           size={24}
           onClick={updateRating}
-          initialValue={props.currentBook[0].rating}
+          initialValue={props.currentBook.rating}
         />
       </FormElement>
-      <button onClick={newBook}>Add Book</button>
+      <button onClick={update}>Add Book</button>
     </BookForm>
   );
 }
