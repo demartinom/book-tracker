@@ -7,11 +7,6 @@ export default function Home() {
   const [bookList, setBookList] = React.useState([]);
   const [currentBook, setCurrentBook] = React.useState(null);
   const [isShown, setIsShown] = React.useState(false);
-  React.useEffect(() => {
-    if (currentBook) {
-      setIsShown(true);
-    }
-  }, [currentBook]);
   return (
     <div>
       <NewBook setBooks={setBookList} />
