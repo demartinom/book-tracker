@@ -25,6 +25,7 @@ export default function UpdateBook(props) {
       return book;
     });
     props.setBooks(newArray);
+    props.hideUpdate(false);
   }
   return (
     <BookForm action="">
@@ -78,7 +79,7 @@ export default function UpdateBook(props) {
           initialValue={props.currentBook.rating}
         />
       </FormElement>
-      <button onClick={update}>Add Book</button>
+      <button onClick={update}>Update Book</button>
     </BookForm>
   );
 }
