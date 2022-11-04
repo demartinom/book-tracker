@@ -2,7 +2,6 @@ import React from "react";
 import { BookTableStyled, Actions } from "../styles/BookTable.styled";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import dynamic from "next/dynamic";
-import UpdateBook from "./UpdateBook";
 
 const RatingFunction = dynamic(
   () => import("react-simple-star-rating").then((mod) => mod.Rating),
