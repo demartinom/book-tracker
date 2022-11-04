@@ -27,6 +27,7 @@ export default function Home() {
           currentBook={currentBook}
           setCurrent={setCurrentBook}
           setBooks={setBookList}
+          bookList={bookList}
         />
       )}
     </div>
