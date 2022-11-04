@@ -5,7 +5,7 @@ import UpdateBook from "../components/UpdateBook";
 
 export default function Home() {
   const [bookList, setBookList] = React.useState([]);
-  const [currentBook, setCurrentBook] = React.useState(null);
+  const [currentBook, setCurrentBook] = React.useState({});
   const [isShown, setIsShown] = React.useState(false);
   return (
     <div>
