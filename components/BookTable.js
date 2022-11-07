@@ -15,11 +15,13 @@ export default function BookTable(props) {
       )
     );
   }
+  console.log(props.bookList)
   function updateBook(e) {
-    const bookObject = props.bookList.filter(
-      (book) => book.id == e.target.parentNode.parentNode.id
+    props.setCurrentBook(
+      props.bookList.find(
+        (book) => book.id == e.target.parentNode.parentNode.id
+      )
     );
-    props.setCurrentBook(bookObject[0]);
     props.setIsShown(true);
   }
   const bookData = props.bookList.map((book) => (
