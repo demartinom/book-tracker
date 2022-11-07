@@ -15,7 +15,6 @@ export default function BookTable(props) {
       )
     );
   }
-  console.log(props.bookList)
   function updateBook(e) {
     props.setCurrentBook(
       props.bookList.find(
