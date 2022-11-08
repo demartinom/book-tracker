@@ -16,11 +16,19 @@ export default function BookTable(props) {
     );
   }
   function updateBook(e) {
-    props.setCurrentBook(
-      props.bookList.find(
-        (book) => book.id == e.target.parentNode.parentNode.id
-      )
+    const bookObject = props.bookList.find(
+      (book) => book.id == e.target.parentNode.parentNode.id
     );
+    if (bookObject) {
+      props.setCurrentBook({
+        name: bookObject.name,
+        id: bookObject.id,
+        author: bookObject.author,
+        genre: bookObject.genre,
+        status: bookObject.status,
+        rating: bookObject.rating,
+      });
+    }
     props.setIsShown(true);
   }
   const bookData = props.bookList.map((book) => (
