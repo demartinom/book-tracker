@@ -9,7 +9,7 @@ export default function Home() {
   const [isShown, setIsShown] = React.useState(false);
   React.useEffect(() => {
     if (bookList.length > 0) {
-      localStorage.setItem("booklist", JSON.stringify(bookList));
+      localStorage.setItem("book-tracker-list", JSON.stringify(bookList));
     }
   }, [bookList]);
   return (
