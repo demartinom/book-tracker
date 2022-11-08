@@ -7,6 +7,11 @@ export default function Home() {
   const [bookList, setBookList] = React.useState([]);
   const [currentBook, setCurrentBook] = React.useState({});
   const [isShown, setIsShown] = React.useState(false);
+  React.useEffect(() => {
+    if (bookList.length > 0) {
+      localStorage.setItem("booklist", JSON.stringify(bookList));
+    }
+  }, [bookList]);
   return (
     <div>
       <NewBook setBooks={setBookList} />
