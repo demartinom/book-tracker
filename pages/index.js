@@ -1,5 +1,5 @@
 import NewBook from "../components/NewBook";
-import React from "react";
+import React, { useRef } from "react";
 import BookTable from "../components/BookTable";
 import UpdateBook from "../components/UpdateBook";
 
@@ -8,7 +8,18 @@ export default function Home() {
   const [currentBook, setCurrentBook] = React.useState({});
   const [isShown, setIsShown] = React.useState(false);
   React.useEffect(() => {
-    if (bookList.length > 0) {
+    const savedBookList = JSON.parse(localStorage.getItem("book-tracker-list"));
+    if (savedBookList === null) {
+      localStorage.setItem("book-tracker-list", JSON.stringify(bookList));
+    } else {
+      setBookList(savedBookList);
+    }
+  }, []);
+  let firstLoad = useRef(false);
+  React.useEffect(() => {
+    if (!firstLoad.current) {
+      firstLoad.current = true;
+    } else {
       localStorage.setItem("book-tracker-list", JSON.stringify(bookList));
     }
   }, [bookList]);
