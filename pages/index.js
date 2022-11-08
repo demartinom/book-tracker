@@ -7,14 +7,20 @@ export default function Home() {
   const [bookList, setBookList] = React.useState([]);
   const [currentBook, setCurrentBook] = React.useState({});
   const [isShown, setIsShown] = React.useState(false);
-  React.useEffect(() => {
-    const savedBookList = JSON.parse(localStorage.getItem("book-tracker-list"));
-    if (savedBookList === null) {
-      localStorage.setItem("book-tracker-list", JSON.stringify(bookList));
-    } else {
-      setBookList(savedBookList);
-    }
-  }, []);
+  React.useEffect(
+    () => {
+      const savedBookList = JSON.parse(
+        localStorage.getItem("book-tracker-list")
+      );
+      if (savedBookList === null) {
+        localStorage.setItem("book-tracker-list", JSON.stringify(bookList));
+      } else {
+        setBookList(savedBookList);
+      }
+    },
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+    []
+  );
   let firstLoad = useRef(false);
   React.useEffect(() => {
     if (!firstLoad.current) {
