@@ -6,52 +6,62 @@ const RatingFunction = dynamic(
   () => import("react-simple-star-rating").then((mod) => mod.Rating),
   { ssr: false }
 );
-export default function NewBook(props) {
-  const [bookData, setBookData] = React.useState({
-    id: Math.floor(Math.random() * 1000),
-    name: "",
-    author: "",
-    genre: "",
-    status: "",
-    rating: 0,
-  });
+export default function UpdateBook(props) {
   function updateBookInfo(event) {
-    setBookData((prevData) => ({
+    props.setCurrent((prevData) => ({
       ...prevData,
       [event.target.name]: event.target.value,
     }));
   }
   function updateRating(event) {
-    setBookData((prevData) => ({ ...prevData, rating: event }));
+    props.setCurrent((prevData) => ({ ...prevData, rating: event }));
   }
-  function newBook(event) {
+  function update(event) {
     event.preventDefault();
-    setBookData((prevData) => ({
-      ...prevData,
-      id: Math.floor(Math.random() * 1000),
-    }));
-    props.setBooks((prevArray) => [...prevArray, bookData]);
+    let newArray = props.bookList.map((book) => {
+      if (book.id === props.currentBook.id) {
+        return props.currentBook;
+      }
+      return book;
+    });
+    props.setBooks(newArray);
+    props.hideUpdate(false);
   }
   return (
     <BookForm action="">
       <FormElement>
         <label htmlFor="name">Book Name</label>
-        <input onChange={updateBookInfo} type="text" name="name" />
+        <input
+          onChange={updateBookInfo}
+          type="text"
+          name="name"
+          defaultValue={props.currentBook.name}
+        />
       </FormElement>
       <FormElement>
         <label htmlFor="author">Author</label>
-        <input onChange={updateBookInfo} type="text" name="author" />
+        <input
+          onChange={updateBookInfo}
+          type="text"
+          name="author"
+          defaultValue={props.currentBook.author}
+        />
       </FormElement>
       <FormElement>
         <label htmlFor="genre">Genre</label>
-        <input onChange={updateBookInfo} type="text" name="genre" />
+        <input
+          onChange={updateBookInfo}
+          type="text"
+          name="genre"
+          defaultValue={props.currentBook.genre}
+        />
       </FormElement>
       <FormElement>
         <label htmlFor="bookStatus">Book Status</label>
         <select
           name="status"
           onChange={updateBookInfo}
-          defaultValue={"default"}
+          defaultValue={props.currentBook.status}
         >
           <option value="default" disabled name="choose">
             Choose an Option
@@ -63,9 +73,13 @@ export default function NewBook(props) {
       </FormElement>
       <FormElement>
         <label htmlFor="rating">Book Rating</label>
-        <RatingFunction size={24} onClick={updateRating} />
+        <RatingFunction
+          size={24}
+          onClick={updateRating}
+          initialValue={props.currentBook.rating}
+        />
       </FormElement>
-      <button onClick={newBook}>Add Book</button>
+      <button onClick={update}>Update Book</button>
     </BookForm>
   );
 }
