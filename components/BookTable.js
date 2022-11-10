@@ -46,16 +46,91 @@ export default function BookTable(props) {
       </Actions>
     </tr>
   ));
-
+  function sortName() {
+    let sortedBooks = [...props.bookList];
+    sortedBooks.sort((a, b) => {
+      if (a.name.toLowerCase() === "") {
+        return 1;
+      } else if (b.name.toLowerCase() === "") {
+        return -1;
+      } else {
+        return a.name.toLowerCase() < b.name.toLowerCase()
+          ? -1
+          : a.name.toLowerCase() > b.name.toLowerCase()
+          ? 1
+          : 0;
+      }
+    });
+    props.setBooks(sortedBooks);
+  }
+  function sortAuthor() {
+    let sortedBooks = [...props.bookList];
+    sortedBooks.sort((a, b) => {
+      if (a.author.toLowerCase() === "") {
+        return 1;
+      } else if (b.author.toLowerCase() === "") {
+        return -1;
+      } else {
+        return a.author.toLowerCase() < b.author.toLowerCase()
+          ? -1
+          : a.author.toLowerCase() > b.author.toLowerCase()
+          ? 1
+          : 0;
+      }
+    });
+    props.setBooks(sortedBooks);
+  }
+  function sortGenre() {
+    let sortedBooks = [...props.bookList];
+    sortedBooks.sort((a, b) => {
+      if (a.genre.toLowerCase() === "") {
+        return 1;
+      } else if (b.genre.toLowerCase() === "") {
+        return -1;
+      } else {
+        return a.genre.toLowerCase() < b.genre.toLowerCase()
+          ? -1
+          : a.genre.toLowerCase() > b.genre.toLowerCase()
+          ? 1
+          : 0;
+      }
+    });
+    props.setBooks(sortedBooks);
+  }
+  function sortStatus() {
+    let sortedBooks = [...props.bookList];
+    sortedBooks.sort((a, b) => {
+      if (a.status === "") {
+        return 1;
+      } else if (b.status === "") {
+        return -1;
+      } else {
+        return a.status < b.status ? -1 : a.status > b.status ? 1 : 0;
+      }
+    });
+    props.setBooks(sortedBooks);
+  }
+  function sortRating() {
+    let sortedBooks = [...props.bookList];
+    sortedBooks.sort((a, b) => {
+      if (a.rating < b.rating) {
+        return 1;
+      } else if (a.rating > b.rating) {
+        return -1;
+      }
+      return 0;
+    });
+    props.setBooks(sortedBooks);
+  }
   return (
     <BookTableStyled>
       <thead>
         <tr>
-          <th>Book Title</th>
-          <th>Author</th>
-          <th>Genre</th>
-          <th>Status</th>
-          <th>Rating</th>
+          <th onClick={sortName}>Book Title</th>
+          <th onClick={sortAuthor}>Author</th>
+          <th onClick={sortGenre}>Genre</th>
+          <th onClick={sortStatus}>Status</th>
+          <th onClick={sortRating}>Rating</th>
         </tr>
       </thead>
       <tbody>{bookData}</tbody>
