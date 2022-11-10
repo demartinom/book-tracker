@@ -46,20 +46,26 @@ export default function BookTable(props) {
       </Actions>
     </tr>
   ));
-  function sortTable() {
+  function sortName() {
     let sortedBooks = [...props.bookList];
-    sortedBooks.sort((a, b) => {});
-    console.log(sortedBooks);
+    sortedBooks.sort((a, b) => {
+      if (a.name.toLowerCase() < b.name.toLowerCase()) {
+        return -1;
+      } else if (a.name.toLowerCase() > b.name.toLowerCase()) {
+        return 1;
+      }
+      return 0;
+    });
   }
   return (
     <BookTableStyled>
       <thead>
         <tr>
-          <th onClick={sortTable}>Book Title</th>
-          <th onClick={sortTable}>Author</th>
-          <th onClick={sortTable}>Genre</th>
-          <th onClick={sortTable}>Status</th>
-          <th onClick={sortTable}>Rating</th>
+          <th onClick={sortName}>Book Title</th>
+          <th>Author</th>
+          <th>Genre</th>
+          <th>Status</th>
+          <th>Rating</th>
         </tr>
       </thead>
       <tbody>{bookData}</tbody>
