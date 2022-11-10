@@ -68,15 +68,48 @@ export default function BookTable(props) {
       return 0;
     });
   }
+  function sortAuthor() {
+    let sortedBooks = [...props.bookList];
+    sortedBooks.sort((a, b) => {
+      if (a.author.toLowerCase() < b.author.toLowerCase()) {
+        return -1;
+      } else if (a.author.toLowerCase() > b.author.toLowerCase()) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  function sortStatus() {
+    let sortedBooks = [...props.bookList];
+    sortedBooks.sort((a, b) => {
+      if (a.status.toLowerCase() < b.status.toLowerCase()) {
+        return -1;
+      } else if (a.status.toLowerCase() > b.status.toLowerCase()) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  function sortRating() {
+    let sortedBooks = [...props.bookList];
+    sortedBooks.sort((a, b) => {
+      if (a.rating < b.rating) {
+        return -1;
+      } else if (a.rating > b.rating) {
+        return 1;
+      }
+      return 0;
+    });
+  }
   return (
     <BookTableStyled>
       <thead>
         <tr>
           <th onClick={sortName}>Book Title</th>
           <th onClick={sortGenre}>Author</th>
-          <th>Genre</th>
-          <th>Status</th>
-          <th>Rating</th>
+          <th onClick={sortAuthor}>Genre</th>
+          <th onClick={sortStatus}>Status</th>
+          <th onClick={sortRating}>Rating</th>
         </tr>
       </thead>
       <tbody>{bookData}</tbody>
