@@ -12,7 +12,7 @@ export default function NewBook(props) {
     name: "",
     author: "",
     genre: "",
-    status: "",
+    status: "default",
     rating: 0,
   });
   function updateBookInfo(event) {
@@ -31,27 +31,51 @@ export default function NewBook(props) {
       id: Math.floor(Math.random() * 1000),
     }));
     props.setBooks((prevArray) => [...prevArray, bookData]);
+    setBookData({
+      id: Math.floor(Math.random() * 1000),
+      name: "",
+      author: "",
+      genre: "",
+      status: "default",
+      rating: 0,
+    });
+    event.target.parentNode.reset();
   }
   return (
     <BookForm action="">
       <FormElement>
         <label htmlFor="name">Book Name</label>
-        <input onChange={updateBookInfo} type="text" name="name" />
+        <input
+          onChange={updateBookInfo}
+          type="text"
+          name="name"
+          value={bookData.name}
+        />
       </FormElement>
       <FormElement>
         <label htmlFor="author">Author</label>
-        <input onChange={updateBookInfo} type="text" name="author" />
+        <input
+          onChange={updateBookInfo}
+          type="text"
+          name="author"
+          value={bookData.author}
+        />
       </FormElement>
       <FormElement>
         <label htmlFor="genre">Genre</label>
-        <input onChange={updateBookInfo} type="text" name="genre" />
+        <input
+          onChange={updateBookInfo}
+          type="text"
+          name="genre"
+          value={bookData.genre}
+        />
       </FormElement>
       <FormElement>
         <label htmlFor="bookStatus">Book Status</label>
         <select
           name="status"
           onChange={updateBookInfo}
-          defaultValue={"default"}
+          defaultValue={bookData.status}
         >
           <option value="default" disabled name="choose">
             Choose an Option
@@ -63,7 +87,11 @@ export default function NewBook(props) {
       </FormElement>
       <FormElement>
         <label htmlFor="rating">Book Rating</label>
-        <RatingFunction size={24} onClick={updateRating} />
+        <RatingFunction
+          size={24}
+          onClick={updateRating}
+          initialValue={bookData.rating}
+        />
       </FormElement>
       <button onClick={newBook}>Add Book</button>
     </BookForm>
