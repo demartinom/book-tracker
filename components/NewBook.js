@@ -31,10 +31,6 @@ export default function NewBook(props) {
       id: Math.floor(Math.random() * 1000),
     }));
     props.setBooks((prevArray) => [...prevArray, bookData]);
-    setBookData({
-      id: Math.floor(Math.random() * 1000),
-    });
-    event.target.parentNode.reset();
   }
   return (
     <BookForm action="">
@@ -44,7 +40,6 @@ export default function NewBook(props) {
           onChange={updateBookInfo}
           type="text"
           name="name"
-          value={bookData.name}
         />
       </FormElement>
       <FormElement>
@@ -53,7 +48,6 @@ export default function NewBook(props) {
           onChange={updateBookInfo}
           type="text"
           name="author"
-          value={bookData.author}
         />
       </FormElement>
       <FormElement>
@@ -62,7 +56,6 @@ export default function NewBook(props) {
           onChange={updateBookInfo}
           type="text"
           name="genre"
-          value={bookData.genre}
         />
       </FormElement>
       <FormElement>
@@ -70,7 +63,7 @@ export default function NewBook(props) {
         <select
           name="status"
           onChange={updateBookInfo}
-          defaultValue={bookData.status}
+          defaultValue={'default'}
         >
           <option value="default" disabled name="choose">
             Choose an Option
@@ -85,7 +78,7 @@ export default function NewBook(props) {
         <RatingFunction
           size={24}
           onClick={updateRating}
-          initialValue={bookData.rating}
+          initialValue={0}
         />
       </FormElement>
       <button onClick={newBook}>Add Book</button>
