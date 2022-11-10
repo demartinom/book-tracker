@@ -98,9 +98,9 @@ export default function BookTable(props) {
     let sortedBooks = [...props.bookList];
     sortedBooks.sort((a, b) => {
       if (a.rating < b.rating) {
-        return -1;
-      } else if (a.rating > b.rating) {
         return 1;
+      } else if (a.rating > b.rating) {
+        return -1;
       }
       return 0;
     });
