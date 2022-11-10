@@ -33,11 +33,6 @@ export default function NewBook(props) {
     props.setBooks((prevArray) => [...prevArray, bookData]);
     setBookData({
       id: Math.floor(Math.random() * 1000),
-      name: "",
-      author: "",
-      genre: "",
-      status: "default",
-      rating: 0,
     });
     event.target.parentNode.reset();
   }
