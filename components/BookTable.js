@@ -56,17 +56,7 @@ export default function BookTable(props) {
       }
       return 0;
     });
-  }
-  function sortGenre() {
-    let sortedBooks = [...props.bookList];
-    sortedBooks.sort((a, b) => {
-      if (a.genre.toLowerCase() < b.genre.toLowerCase()) {
-        return -1;
-      } else if (a.genre.toLowerCase() > b.genre.toLowerCase()) {
-        return 1;
-      }
-      return 0;
-    });
+    props.setBooks(sortedBooks);
   }
   function sortAuthor() {
     let sortedBooks = [...props.bookList];
@@ -78,6 +68,19 @@ export default function BookTable(props) {
       }
       return 0;
     });
+    props.setBooks(sortedBooks);
+  }
+  function sortGenre() {
+    let sortedBooks = [...props.bookList];
+    sortedBooks.sort((a, b) => {
+      if (a.genre.toLowerCase() < b.genre.toLowerCase()) {
+        return -1;
+      } else if (a.genre.toLowerCase() > b.genre.toLowerCase()) {
+        return 1;
+      }
+      return 0;
+    });
+    props.setBooks(sortedBooks);
   }
   function sortStatus() {
     let sortedBooks = [...props.bookList];
@@ -89,6 +92,7 @@ export default function BookTable(props) {
       }
       return 0;
     });
+    props.setBooks(sortedBooks);
   }
   function sortRating() {
     let sortedBooks = [...props.bookList];
@@ -100,14 +104,15 @@ export default function BookTable(props) {
       }
       return 0;
     });
+    props.setBooks(sortedBooks);
   }
   return (
     <BookTableStyled>
       <thead>
         <tr>
           <th onClick={sortName}>Book Title</th>
-          <th onClick={sortGenre}>Author</th>
-          <th onClick={sortAuthor}>Genre</th>
+          <th onClick={sortAuthor}>Author</th>
+          <th onClick={sortGenre}>Genre</th>
           <th onClick={sortStatus}>Status</th>
           <th onClick={sortRating}>Rating</th>
         </tr>
