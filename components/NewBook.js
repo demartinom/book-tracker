@@ -1,5 +1,5 @@
 import React from "react";
-import { BookForm, FormElement } from "../styles/BookForm";
+import { BookForm, FormElement } from "../styles/BookForm.styled";
 import dynamic from "next/dynamic";
 
 const RatingFunction = dynamic(
