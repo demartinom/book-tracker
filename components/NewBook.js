@@ -36,34 +36,22 @@ export default function NewBook(props) {
     <BookForm action="">
       <FormElement>
         <label htmlFor="name">Book Name</label>
-        <input
-          onChange={updateBookInfo}
-          type="text"
-          name="name"
-        />
+        <input onChange={updateBookInfo} type="text" name="name" />
       </FormElement>
       <FormElement>
         <label htmlFor="author">Author</label>
-        <input
-          onChange={updateBookInfo}
-          type="text"
-          name="author"
-        />
+        <input onChange={updateBookInfo} type="text" name="author" />
       </FormElement>
       <FormElement>
         <label htmlFor="genre">Genre</label>
-        <input
-          onChange={updateBookInfo}
-          type="text"
-          name="genre"
-        />
+        <input onChange={updateBookInfo} type="text" name="genre" />
       </FormElement>
       <FormElement>
         <label htmlFor="bookStatus">Book Status</label>
         <select
           name="status"
           onChange={updateBookInfo}
-          defaultValue={'default'}
+          defaultValue={"default"}
         >
           <option value="default" disabled name="choose">
             Choose an Option
@@ -75,11 +63,7 @@ export default function NewBook(props) {
       </FormElement>
       <FormElement>
         <label htmlFor="rating">Book Rating</label>
-        <RatingFunction
-          size={24}
-          onClick={updateRating}
-          initialValue={0}
-        />
+        <RatingFunction size={24} onClick={updateRating} initialValue={0} />
       </FormElement>
       <button onClick={newBook}>Add Book</button>
     </BookForm>
