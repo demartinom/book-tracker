@@ -8,17 +8,11 @@ const RatingFunction = dynamic(
   { ssr: false }
 );
 export default function BookTable(props) {
-  function deleteBook(e) {
-    props.setBooks((prevList) =>
-      prevList.filter(
-        (book) => book.id !== parseInt(e.target.parentNode.parentNode.id)
-      )
-    );
+  function deleteBook(bookId) {
+    props.setBooks((prevList) => prevList.filter((book) => book.id !== bookId));
   }
-  function updateBook(e) {
-    const bookObject = props.bookList.find(
-      (book) => book.id == e.target.parentNode.parentNode.id
-    );
+  function updateBook(bookId) {
+    const bookObject = props.bookList.find((book) => book.id == bookId);
     if (bookObject) {
       props.setCurrentBook({
         name: bookObject.name,
@@ -41,8 +35,16 @@ export default function BookTable(props) {
         <RatingFunction initialValue={book.rating} size={24} readonly={true} />
       </td>
       <Actions>
-        <AiOutlineDelete onClick={deleteBook} />
-        <AiOutlineEdit onClick={updateBook} />
+        <AiOutlineDelete
+          onClick={() => {
+            deleteBook(book.id);
+          }}
+        />
+        <AiOutlineEdit
+          onClick={() => {
+            updateBook(book.id);
+          }}
+        />
       </Actions>
     </tr>
   ));
