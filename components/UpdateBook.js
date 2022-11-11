@@ -1,5 +1,6 @@
 import React from "react";
 import { BookForm, FormElement } from "../styles/BookForm.styled";
+import { UpdateStyled } from "../styles/UpdateBook.styled";
 import dynamic from "next/dynamic";
 
 const RatingFunction = dynamic(
@@ -28,58 +29,60 @@ export default function UpdateBook(props) {
     props.hideUpdate(false);
   }
   return (
-    <BookForm action="">
-      <FormElement>
-        <label htmlFor="name">Book Name</label>
-        <input
-          onChange={updateBookInfo}
-          type="text"
-          name="name"
-          defaultValue={props.currentBook.name}
-        />
-      </FormElement>
-      <FormElement>
-        <label htmlFor="author">Author</label>
-        <input
-          onChange={updateBookInfo}
-          type="text"
-          name="author"
-          defaultValue={props.currentBook.author}
-        />
-      </FormElement>
-      <FormElement>
-        <label htmlFor="genre">Genre</label>
-        <input
-          onChange={updateBookInfo}
-          type="text"
-          name="genre"
-          defaultValue={props.currentBook.genre}
-        />
-      </FormElement>
-      <FormElement>
-        <label htmlFor="bookStatus">Book Status</label>
-        <select
-          name="status"
-          onChange={updateBookInfo}
-          defaultValue={props.currentBook.status}
-        >
-          <option value="default" disabled name="choose">
-            Choose an Option
-          </option>
-          <option value="Finished">Finished</option>
-          <option value="Currently Reading">Currently Reading</option>
-          <option value="Want to Read">Want to Read</option>
-        </select>
-      </FormElement>
-      <FormElement>
-        <label htmlFor="rating">Book Rating</label>
-        <RatingFunction
-          size={24}
-          onClick={updateRating}
-          initialValue={props.currentBook.rating}
-        />
-      </FormElement>
-      <button onClick={update}>Update Book</button>
-    </BookForm>
+    <UpdateStyled>
+      <BookForm action="">
+        <FormElement>
+          <label htmlFor="name">Book Name</label>
+          <input
+            onChange={updateBookInfo}
+            type="text"
+            name="name"
+            defaultValue={props.currentBook.name}
+          />
+        </FormElement>
+        <FormElement>
+          <label htmlFor="author">Author</label>
+          <input
+            onChange={updateBookInfo}
+            type="text"
+            name="author"
+            defaultValue={props.currentBook.author}
+          />
+        </FormElement>
+        <FormElement>
+          <label htmlFor="genre">Genre</label>
+          <input
+            onChange={updateBookInfo}
+            type="text"
+            name="genre"
+            defaultValue={props.currentBook.genre}
+          />
+        </FormElement>
+        <FormElement>
+          <label htmlFor="bookStatus">Book Status</label>
+          <select
+            name="status"
+            onChange={updateBookInfo}
+            defaultValue={props.currentBook.status}
+          >
+            <option value="default" disabled name="choose">
+              Choose an Option
+            </option>
+            <option value="Finished">Finished</option>
+            <option value="Currently Reading">Currently Reading</option>
+            <option value="Want to Read">Want to Read</option>
+          </select>
+        </FormElement>
+        <FormElement>
+          <label htmlFor="rating">Book Rating</label>
+          <RatingFunction
+            size={24}
+            onClick={updateRating}
+            initialValue={props.currentBook.rating}
+          />
+        </FormElement>
+        <button onClick={update}>Update Book</button>
+      </BookForm>
+    </UpdateStyled>
   );
 }
