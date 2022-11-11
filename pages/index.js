@@ -2,6 +2,7 @@ import NewBook from "../components/NewBook";
 import React, { useRef } from "react";
 import BookTable from "../components/BookTable";
 import UpdateBook from "../components/UpdateBook";
+import { UpdateContainer, TrackerContainer } from "../styles/index.styled";
 
 export default function Home() {
   const [bookList, setBookList] = React.useState([]);
@@ -30,7 +31,7 @@ export default function Home() {
     }
   }, [bookList]);
   return (
-    <div>
+    <TrackerContainer>
       <NewBook setBooks={setBookList} />
       <BookTable
         bookList={bookList}
@@ -39,14 +40,16 @@ export default function Home() {
         setIsShown={setIsShown}
       />
       {isShown && (
-        <UpdateBook
-          hideUpdate={setIsShown}
-          currentBook={currentBook}
-          setCurrent={setCurrentBook}
-          setBooks={setBookList}
-          bookList={bookList}
-        />
+        <UpdateContainer>
+          <UpdateBook
+            hideUpdate={setIsShown}
+            currentBook={currentBook}
+            setCurrent={setCurrentBook}
+            setBooks={setBookList}
+            bookList={bookList}
+          />
+        </UpdateContainer>
       )}
-    </div>
+    </TrackerContainer>
   );
 }
