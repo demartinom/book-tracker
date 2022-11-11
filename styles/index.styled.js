@@ -8,4 +8,8 @@ export const UpdateContainer = styled.div`
 `;
 export const TrackerContainer = styled.div`
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
 `;
