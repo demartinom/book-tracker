@@ -5,6 +5,7 @@ export const BookForm = styled.form`
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(2, 1fr);
   text-align: center;
+  gap: 0 1rem;
   .name-label {
     grid-area: 1 / 1 / 2 / 2;
   }
