@@ -21,14 +21,13 @@ export const BookTableStyled = styled.table`
   tr:nth-child(even) {
     background-color: var(--color-row-even);
   }
-  td:nth-child(6) {
+  td:last-child {
     background-color: var(--color-background);
   }
 `;
 
 export const Actions = styled.td`
-  display: flex;
-  gap: 0.5rem;
+  text-align: left;
   svg {
     cursor: pointer;
   }
