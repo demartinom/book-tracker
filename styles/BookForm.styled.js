@@ -38,4 +38,12 @@ export const BookForm = styled.form`
   .submit {
     grid-area: 2 / 6 / 3 / 7;
   }
+  input,
+  select,
+  button {
+    height: 1.25rem;
+  }
+  button {
+    width: 4.5rem;
+  }
 `;
