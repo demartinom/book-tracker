@@ -31,6 +31,7 @@ export default function NewBook(props) {
       id: Math.floor(Math.random() * 1000),
     }));
     props.setBooks((prevArray) => [...prevArray, bookData]);
+    event.target.parentNode.reset();
   }
   return (
     <BookForm action="">
