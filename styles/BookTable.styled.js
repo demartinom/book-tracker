@@ -4,10 +4,12 @@ export const BookTableStyled = styled.table`
   text-align: center;
   margin-top: 5rem;
   margin-left: 9rem;
+  word-break: break-word;
   th,
   td {
     width: 12rem;
     font-size: 1.5rem;
+    padding: .25rem;
   }
   th {
     background-color: var(--color-header);
