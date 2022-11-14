@@ -133,6 +133,7 @@ export default function BookTable(props) {
           <th onClick={sortGenre}>Genre</th>
           <th onClick={sortStatus}>Status</th>
           <th onClick={sortRating}>Rating</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>{bookData}</tbody>
