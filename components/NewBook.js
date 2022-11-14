@@ -32,6 +32,7 @@ export default function NewBook(props) {
     }));
     props.setBooks((prevArray) => [...prevArray, bookData]);
     event.target.parentNode.reset();
+    setBookData({ id: Math.floor(Math.random() * 1000), rating: 0 });
   }
   return (
     <BookForm action="">
@@ -82,7 +83,11 @@ export default function NewBook(props) {
         Book Rating
       </label>
       <div className="rating-input">
-        <RatingFunction size={24} onClick={updateRating} initialValue={0} />
+        <RatingFunction
+          size={24}
+          onClick={updateRating}
+          initialValue={bookData.rating}
+        />
       </div>
       <button onClick={newBook} className="submit">
         Add Book
