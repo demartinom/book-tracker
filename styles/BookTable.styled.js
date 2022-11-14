@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 export const BookTableStyled = styled.table`
   text-align: center;
+  margin-top: 5rem;
   th,
   td {
-    width: 8rem;
+    width:12rem;
+    font-size: 1.5rem;
   }
 `;
 
