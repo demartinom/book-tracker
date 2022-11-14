@@ -9,9 +9,12 @@ export const GlobalStyles = createGlobalStyle`
     };
     :root{
         --font-playfair: 'Playfair Display', serif;
-        --color-background: white; //placeholder
+        --color-background: #FAEDCD; 
+        --color-font: #0C1618;
+        --color-header: #CCD5AE;
     }
     body{
         background-color: var(--color-background);
+        color: var(--color-font)
     }
 `;

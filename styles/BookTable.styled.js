@@ -9,6 +9,12 @@ export const BookTableStyled = styled.table`
     width:12rem;
     font-size: 1.5rem;
   }
+  th{
+    background-color: var(--color-header);
+  }
+  th:last-child{
+    background-color: var(--color-background);
+  }
 `;
 
 export const Actions = styled.td`
