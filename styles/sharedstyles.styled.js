@@ -11,7 +11,9 @@ export const GlobalStyles = createGlobalStyle`
         --font-playfair: 'Playfair Display', serif;
         --color-background: #FAEDCD; 
         --color-font: #0C1618;
-        --color-header: #CCD5AE;
+        --color-header: #D4A373;
+        --color-row-odd: #CCD5AE;
+        --color-row-even: #E9EDC9;
     }
     body{
         background-color: var(--color-background);
