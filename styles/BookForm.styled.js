@@ -45,6 +45,6 @@ export const BookForm = styled.form`
     height: 1.25rem;
   }
   button {
-    width: 4.5rem;
+    width: 6rem;
   }
 `;
