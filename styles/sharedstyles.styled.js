@@ -9,5 +9,9 @@ export const GlobalStyles = createGlobalStyle`
     };
     :root{
         --font-playfair: 'Playfair Display', serif;
+        --color-background: white; //placeholder
+    }
+    body{
+        background-color: var(--color-background);
     }
 `;

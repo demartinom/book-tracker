@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const UpdateContainer = styled.div`
   position: absolute;
-  background-color: white;
+  background-color: var(--color-background);
   box-shadow: 0 0 0 1600px rgba(0, 0, 0, 0.65);
   top: 15rem;
   padding: 5rem;
