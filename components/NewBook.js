@@ -34,38 +34,58 @@ export default function NewBook(props) {
   }
   return (
     <BookForm action="">
-      <FormElement>
-        <label htmlFor="name">Book Name</label>
-        <input onChange={updateBookInfo} type="text" name="name" />
-      </FormElement>
-      <FormElement>
-        <label htmlFor="author">Author</label>
-        <input onChange={updateBookInfo} type="text" name="author" />
-      </FormElement>
-      <FormElement>
-        <label htmlFor="genre">Genre</label>
-        <input onChange={updateBookInfo} type="text" name="genre" />
-      </FormElement>
-      <FormElement>
-        <label htmlFor="bookStatus">Book Status</label>
-        <select
-          name="status"
-          onChange={updateBookInfo}
-          defaultValue={"default"}
-        >
-          <option value="default" disabled name="choose">
-            Choose an Option
-          </option>
-          <option value="Finished">Finished</option>
-          <option value="Currently Reading">Currently Reading</option>
-          <option value="Want to Read">Want to Read</option>
-        </select>
-      </FormElement>
-      <FormElement>
-        <label htmlFor="rating">Book Rating</label>
+      <label htmlFor="name" className="name-label">
+        Book Name
+      </label>
+      <input
+        onChange={updateBookInfo}
+        type="text"
+        name="name"
+        className="name-input"
+      />
+      <label htmlFor="author" className="author-label">
+        Author
+      </label>
+      <input
+        onChange={updateBookInfo}
+        type="text"
+        name="author"
+        className="author-input"
+      />
+      <label htmlFor="genre" className="genre-label">
+        Genre
+      </label>
+      <input
+        onChange={updateBookInfo}
+        type="text"
+        name="genre"
+        className="genre-input"
+      />
+      <label htmlFor="bookStatus" className="status-label">
+        Book Status
+      </label>
+      <select
+        name="status"
+        onChange={updateBookInfo}
+        defaultValue={"default"}
+        className="status-input"
+      >
+        <option value="default" disabled name="choose">
+          Choose an Option
+        </option>
+        <option value="Finished">Finished</option>
+        <option value="Currently Reading">Currently Reading</option>
+        <option value="Want to Read">Want to Read</option>
+      </select>
+      <label htmlFor="rating" className="rating-label">
+        Book Rating
+      </label>
+      <div className="rating-input">
         <RatingFunction size={24} onClick={updateRating} initialValue={0} />
-      </FormElement>
-      <button onClick={newBook}>Add Book</button>
+      </div>
+      <button onClick={newBook} className="submit">
+        Add Book
+      </button>
     </BookForm>
   );
 }
