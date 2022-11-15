@@ -82,7 +82,7 @@ export default function UpdateBook(props) {
         </select>
         <div className="rating-input">
           <RatingFunction
-            size={24}
+            size={28}
             onClick={updateRating}
             initialValue={props.currentBook.rating}
           />

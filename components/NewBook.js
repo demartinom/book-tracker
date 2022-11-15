@@ -84,7 +84,7 @@ export default function NewBook(props) {
       </label>
       <div className="rating-input">
         <RatingFunction
-          size={24}
+          size={28}
           onClick={updateRating}
           initialValue={bookData.rating}
         />
