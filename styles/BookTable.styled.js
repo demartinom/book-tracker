@@ -5,11 +5,12 @@ export const BookTableStyled = styled.table`
   margin-top: 5rem;
   margin-left: 9rem;
   word-break: break-word;
+  font-family: var(--font-rasa);
   th,
   td {
     width: 12rem;
     font-size: 1.5rem;
-    padding: .25rem;
+    padding: 0.25rem;
   }
   th {
     background-color: var(--color-header);

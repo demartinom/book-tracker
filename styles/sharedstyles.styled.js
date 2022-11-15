@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     };
     :root{
-        --font-playfair: 'Kreon', serif;
+        --font-rasa: 'Rasa', serif;
         --color-background: #FAEDCD; 
         --color-font: #0C1618;
         --color-header: #D4A373;
