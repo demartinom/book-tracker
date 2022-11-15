@@ -5,9 +5,9 @@ export default function Hero() {
   return (
     <HeroStyled>
       <h1>Book Tracker</h1>
-      <h3>
+      <h2>
         Track books you have read, want to read, or are currently reading. You can also sort your tracked books by any of the categories listed.
-      </h3>
+      </h2>
     </HeroStyled>
   );
 }
