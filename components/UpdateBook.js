@@ -85,6 +85,7 @@ export default function UpdateBook(props) {
             size={28}
             onClick={updateRating}
             initialValue={props.currentBook.rating}
+            emptyColor={"#676767"}
           />
         </div>
         <button onClick={update} className="submit">

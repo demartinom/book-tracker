@@ -32,7 +32,12 @@ export default function BookTable(props) {
       <td>{book.genre}</td>
       <td>{book.status}</td>
       <td>
-        <RatingFunction initialValue={book.rating} size={24} readonly={true} />
+        <RatingFunction
+          initialValue={book.rating}
+          size={24}
+          readonly={true}
+          emptyColor={"#676767"}
+        />
       </td>
       <Actions>
         <AiOutlineDelete
