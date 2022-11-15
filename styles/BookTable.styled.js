@@ -6,9 +6,10 @@ export const BookTableStyled = styled.table`
   margin-left: 9rem;
   word-break: break-word;
   font-family: var(--font-rasa);
+  width: 100%;
   th,
   td {
-    width: 12rem;
+    width: 13rem;
     font-size: 1.5rem;
     padding: 0.25rem;
   }
