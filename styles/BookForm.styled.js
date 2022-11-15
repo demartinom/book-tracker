@@ -6,6 +6,7 @@ export const BookForm = styled.form`
   grid-template-rows: repeat(2, 1fr);
   text-align: center;
   gap: 0 1rem;
+  font-size: 1.25rem;
   .name-label {
     grid-area: 1 / 1 / 2 / 2;
   }
@@ -42,9 +43,24 @@ export const BookForm = styled.form`
   input,
   select,
   button {
-    height: 1.25rem;
+    font-family: var(--font-rasa);
+    border: 0.1rem solid var(--color-header);
+    border-radius: 0.2rem;
+    font-size: 1rem;
   }
   button {
     width: 6rem;
+    background-color: white;
+  }
+  label {
+    font-family: var(--font-rasa);
+    font-weight: 700;
+  }
+  input{
+    padding-left: .25rem;
+  }
+  input:focus,
+  select:focus {
+    outline: none;
   }
 `;
