@@ -4,6 +4,7 @@ import BookTable from "../components/BookTable";
 import UpdateBook from "../components/UpdateBook";
 import Hero from "../components/Hero";
 import { UpdateContainer, TrackerContainer } from "../styles/index.styled";
+import Head from "next/head";
 
 export default function Home() {
   const [bookList, setBookList] = React.useState([]);
@@ -33,6 +34,10 @@ export default function Home() {
   }, [bookList]);
   return (
     <>
+      <Head>
+        <link rel="icon" href="/icon.svg" />
+        <title>Book Tracker</title>
+      </Head>
       <Hero />
       <TrackerContainer>
         <NewBook setBooks={setBookList} />
