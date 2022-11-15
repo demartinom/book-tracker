@@ -12,5 +12,5 @@ export const TrackerContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5rem;
+  padding-top: 2rem;
 `;
