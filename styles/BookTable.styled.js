@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BookTableStyled = styled.table`
   text-align: center;
   margin-top: 5rem;
-  margin-left: 9rem;
+  margin-left: 10rem;
   word-break: break-word;
   font-family: var(--font-rasa);
   width: 100%;
