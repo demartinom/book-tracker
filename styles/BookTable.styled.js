@@ -35,5 +35,6 @@ export const Actions = styled.td`
   text-align: left;
   svg {
     cursor: pointer;
+    color: var(--color-font);
   }
 `;

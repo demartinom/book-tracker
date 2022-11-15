@@ -18,4 +18,16 @@ export const GlobalStyles = createGlobalStyle`
         background-color: var(--color-background);
         color: var(--color-font);
     }
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    input,
+    label,
+    button,
+    td,
+    th{
+        color: var(--color-font);
+    }
 `;
