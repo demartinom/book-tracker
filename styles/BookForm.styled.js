@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const FormContainer = styled.div`
+  text-align: center;
+  font-family: var(--font-rasa);
+  h2 {
+    margin-bottom: 1rem;
+  }
+`;
+
 export const BookForm = styled.form`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -56,8 +64,8 @@ export const BookForm = styled.form`
     font-family: var(--font-rasa);
     font-weight: 700;
   }
-  input{
-    padding-left: .25rem;
+  input {
+    padding-left: 0.25rem;
   }
   input:focus,
   select:focus {
