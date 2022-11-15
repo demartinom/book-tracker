@@ -14,6 +14,7 @@ export const BookTableStyled = styled.table`
   }
   th {
     background-color: var(--color-header);
+    font-weight: 700;
   }
   th:last-child {
     background-color: var(--color-background);
