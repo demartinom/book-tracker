@@ -41,7 +41,7 @@ export default function Home() {
       <Hero />
       <TrackerContainer>
         <NewBook setBooks={setBookList} />
-        <BookTable
+        {/* <BookTable
           bookList={bookList}
           setBooks={setBookList}
           setCurrentBook={setCurrentBook}
@@ -57,7 +57,7 @@ export default function Home() {
               bookList={bookList}
             />
           </UpdateContainer>
-        )}
+        )} */}
       </TrackerContainer>
     </>
   );
