@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const HeroStyled = styled.div`
   font-family: var(--font-rasa);
-  padding: 1rem;
+  height: 5rem;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   background-color: var(--color-header);
 `;
