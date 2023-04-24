@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import sizes from "./mediaQueries";
 
 export const FormContainer = styled.div`
   text-align: center;
@@ -70,5 +71,42 @@ export const BookForm = styled.form`
   input:focus,
   select:focus {
     outline: none;
+  }
+  ${sizes.mobile} {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    .name-label {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    .name-input {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+    .author-label {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    .author-input {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+    .genre-label {
+      grid-area: 3 / 1 / 4 / 2;
+    }
+    .genre-input {
+      grid-area: 3 / 2 / 4 / 3;
+    }
+    .status-label {
+      grid-area: 4 / 1 / 5 / 2;
+    }
+    .status-input {
+      grid-area: 4 / 2 / 5 / 3;
+    }
+    .rating-label {
+      grid-area: 5 / 1 / 6 / 2;
+    }
+    .rating-input {
+      grid-area: 5 / 2 / 6 / 3;
+    }
+    .submit {
+      grid-area: 6 / 2 / 7 / 3;
+    }
   }
 `;
